@@ -1,0 +1,19 @@
+
+WKDIR=/home/joseph/csrc
+DEPDIR=./.dep
+OBJDIR=./.obj
+LIBDIR=../lib
+BINDIR=../bin
+INCDIR=../include
+
+CXX=clang++
+COMPILE.c=$(CC) $(CFLAGS) $(CPPFLAGS) -c
+LINK.c=$(CXX) $(CFLAGS) $(CPPFLAGS) $(LDDIR) $(LDFLAGS)
+CPPFLAGS+=-I$(INCDIR) -g
+LDDIR=-L../lib
+LDLIBS=../lib/libapue.a $(EXTRALIBS)
+CFLAGS=-DLINUX -ansi -I$(WKDIR)/include -Wall -D_GNU_SOURCE $(EXTRA)
+
+# Our library that almost every program needs.
+
+
