@@ -7,12 +7,13 @@ BINDIR=../bin
 INCDIR=../include
 
 CXX=clang++
-COMPILE.c=$(CC) $(CFLAGS) $(CPPFLAGS) -c
-LINK.c=$(CXX) $(CFLAGS) $(CPPFLAGS) $(LDDIR) $(LDFLAGS)
-CPPFLAGS+=-I$(INCDIR) -g
+#COMPILE.c=$(CC) $(CFLAGS) $(CPPFLAGS) -c
+#LINK.c=$(CXX) $(CFLAGS) $(CPPFLAGS) $(LDDIR) $(LDFLAGS)
+CPPFLAGS+=-std=c++11 -I$(INCDIR) -g
 LDDIR=-L../lib
 LDLIBS=../lib/libapue.a $(EXTRALIBS)
-CFLAGS=-DLINUX -ansi -I$(WKDIR)/include -Wall -D_GNU_SOURCE $(EXTRA)
+#CFLAGS=-DLINUX -ansi -I$(WKDIR)/include -Wall -D_GNU_SOURCE $(EXTRA)
+#CXXFLAGS=-std=c++11
 
 # Our library that almost every program needs.
 
