@@ -103,6 +103,20 @@ misc: $(OBJDIR)/misc.o
 checkMem: $(OBJDIR)/checkMem.o
 	$(CXX) $(CXXFLAGS) $? -o $(BINDIR)/$@
 
+daytimetcpcli: $(OBJDIR)/daytimetcpcli.o
+	$(CXX) $(CXXFLAGS) $? $(LDDIR) -lpublic -o $(BINDIR)/$@
+
+daytimetcpsrv: $(OBJDIR)/daytimetcpsrv.o
+	$(CXX) $(CXXFLAGS) $? $(LDDIR) -lpublic -o $(BINDIR)/$@
+
+rationalacc: $(OBJDIR)/rationalacc.o
+	$(CXX) $(CXXFLAGS) $? $(LDDIR) -o $(BINDIR)/$@
+
+myrationalacc: $(OBJDIR)/myrationalacc.o
+	$(CXX) $(CXXFLAGS) $? $(LDDIR) -o $(BINDIR)/$@
+
+pointer: $(OBJDIR)/pointer.o
+	$(CXX) $(CXXFLAGS) $? $(LDDIR) -o $(BINDIR)/$@
 
 clean:
 	$(RM) -f $(OBJDIR)/*.o core $(LIBDIR)/*.a  $(BINDIR)/* $(DEPE)
