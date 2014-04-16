@@ -51,7 +51,7 @@ endif
 #       $(CXX) -c $(CPPFLAGS) -o $(OBJDIR)/public.o public.cpp
 
 
-public: $(OBJDIR)/public.o $(OBJDIR)/single.o $(OBJDIR)/daemonize.o
+public: $(OBJDIR)/myapue.o $(OBJDIR)/single.o $(OBJDIR)/daemonize.o  $(OBJDIR)/myunp.o
 	${AR} rv $(LIBDIR)/libpublic.a $?
 	${RANLIB} $(LIBDIR)/libpublic.a
 
@@ -117,6 +117,12 @@ myrationalacc: $(OBJDIR)/myrationalacc.o
 
 pointer: $(OBJDIR)/pointer.o
 	$(CXX) $(CXXFLAGS) $? $(LDDIR) -o $(BINDIR)/$@
+
+srv: $(OBJDIR)/srv.o
+	$(CXX) $(CXXFLAGS) $? $(LDDIR) -lpublic -o $(BINDIR)/$@
+
+cli: $(OBJDIR)/cli.o
+	$(CXX) $(CXXFLAGS) $? $(LDDIR) -lpublic -o $(BINDIR)/$@
 
 clean:
 	$(RM) -f $(OBJDIR)/*.o core $(LIBDIR)/*.a  $(BINDIR)/* $(DEPE)
