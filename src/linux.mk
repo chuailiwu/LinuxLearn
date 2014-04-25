@@ -123,6 +123,12 @@ srv: $(OBJDIR)/srv.o
 
 cli: $(OBJDIR)/cli.o
 	$(CXX) $(CXXFLAGS) $? $(LDDIR) -lpublic -o $(BINDIR)/$@
+	
+epollsrv: $(OBJDIR)/epollsrv.o
+	$(CXX) $(CXXFLAGS) $? $(LDDIR) -lpthread -o $(BINDIR)/$@
+
+epollcli: $(OBJDIR)/epollcli.o
+	$(CXX) $(CXXFLAGS) $? $(LDDIR) -o $(BINDIR)/$@
 
 clean:
 	$(RM) -f $(OBJDIR)/*.o core $(LIBDIR)/*.a  $(BINDIR)/* $(DEPE)
